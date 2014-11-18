@@ -14,7 +14,7 @@ function getAllArticles(callback) {
     });
 }
 
-function getSpecificTitle(title, callback) {
+function getWiki(title, callback) {
     articles.find({title: title}, function (err, wiki) {
         if (err) {
             return callback(err);
@@ -23,8 +23,18 @@ function getSpecificTitle(title, callback) {
     });
 }
 
+function getCategories(callback) {
+    articles.find({categories: new RegExp("^")}, function (err, categories) {
+        if (err) {
+            return callback(err);
+        }
+        callback(null, categories);
+    })
+}
+
 module.exports = {
     getAllArticles: getAllArticles,
-    getSpecificTitle: getSpecificTitle
+    getWiki: getWiki,
+    getCategories: getCategories
 }
 

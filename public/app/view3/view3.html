@@ -7,22 +7,16 @@
 
     <div class="container">
 
-        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Link</th>
-            </tr>
-            </thead>
+        <td>
 
-            <tbody>
-            <tr ng-repeat="wikarticles in wiki | filter:search">
-                <td> {{wikarticles.title}}</td>
-                <td><a href="{{wikarticles.url}}" target="_blank">{{wikarticles.url}}</a></td>
-            </tr>
-
-            </tbody>
-        </table>
-
+            <ul>
+                <li ng-repeat="wikarticles in wiki | filter:search">
+                    <div id="some-div">
+                        <p><a href="{{wikarticles.url}}" target="_blank">{{wikarticles.title}}</a></p>
+                        <span id="some-element">{{wikarticles.abstract}}</span>
+                    </div>
+                </li>
+            </ul>
+    </div>
 </ul>
 </p>

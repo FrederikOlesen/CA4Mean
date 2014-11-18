@@ -16,18 +16,31 @@ router.get('/articles', function (req, res) {
     });
 });
 
-router.get('/articles/:title', function (req, res){
-    console.log("In article detail");
-    var title = req.params.title;
-    model.ProductModel.find({title:title}, function(err, title){
-        if (err)
-        {
-            return callback(err);
+router.get('/articles/:title', function (req, res) {
+    var titlepara = req.params.title;
+    articles.getWiki(titlepara, function (err, title) {
+        if (err) {
+            res.status(err.status || 500);
+            res.send(JSON.stringify({error: err.toString()}));
+            return;
         }
-        else
-        {
-            res.render('categorydetail', {categorydetail: categoryId});
+        res.header("Content-type", "application/json");
+        res.end(JSON.stringify(title));
+    });
+});
+
+router.get('/categories/all', function (req, res) {
+    console.log("In category detail");
+
+    articles.getCategories(function (err, categories) {
+        if (err) {
+            console.log("Cateogory log");
+            res.status(err.status || 500);
+            res.send(JSON.stringify({error: err.toString()}));
+            return;
         }
+        res.header("Content-type", "application/json");
+        res.end(JSON.stringify(categories));
     });
 });
 
