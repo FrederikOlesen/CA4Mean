@@ -21,7 +21,7 @@ if( typeof global.TEST_DATABASE != "undefined" ) {
   dbURI = global.TEST_DATABASE;
 }
 else{
-  dbURI = 'mongodb://localhost/testdb';
+  dbURI = 'mongodb://Adminuser:Admin123@ds053300.mongolab.com:53300/ca4mean';
 }
 
 mongoose.connect(dbURI);
