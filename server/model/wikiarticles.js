@@ -20,13 +20,25 @@ function getWiki(title, callback) {
             return callback(err);
         }
         callback(null, wiki);
-            return callback(err);
-        });
-    }
+        return callback(err);
+    });
+}
 
-    function getCategories(callback) {
-        articles.find().distinct('categories', function (err, categories) {
-            if (err) {
+function getWikiByCategory(category, callback)
+{
+    articles.find({categories:category}).select('title abstract').exec(function (err, wiki)
+    {
+        if (err)
+        {
+            return callback(err);
+        }
+        callback(null, wiki);
+    })
+};
+
+function getCategories(callback) {
+    articles.find().distinct('categories', function (err, categories) {
+        if (err) {
         }
         callback(null, categories);
     })
@@ -45,6 +57,7 @@ function getWiki(title, callback) {
 module.exports = {
     getAllArticles: getAllArticles,
     getWiki: getWiki,
-    getCategories: getCategories
+    getCategories: getCategories,
+    getWikiByCat: getWikiByCategory
 }
 

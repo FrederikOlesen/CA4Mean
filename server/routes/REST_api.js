@@ -29,7 +29,20 @@ router.get('/articles/:title', function (req, res) {
     });
 });
 
-router.get('/categories/all', function (req, res) {
+router.get('/categories/:title', function (req, res) {
+    var titlepara = req.params.title;
+    articles.getWikiByCat(titlepara, function (err, title) {
+        if (err) {
+            res.status(err.status || 500);
+            res.send(JSON.stringify({error: err.toString()}));
+            return;
+        }
+        res.header("Content-type", "application/json");
+        res.end(JSON.stringify(title));
+    });
+});
+
+router.get('/categories', function (req, res) {
     console.log("In category detail");
 
     articles.getCategories(function (err, categories) {
