@@ -24,7 +24,7 @@ function getWiki(title, callback) {
         });
     }
 
-    function getCategories1(callback) {
+    function getCategories(callback) {
         articles.find().distinct('categories', function (err, categories) {
             if (err) {
         }
@@ -33,19 +33,18 @@ function getWiki(title, callback) {
 }
 
 
-function getCategories(callback) {
-    articles.find({categories: new RegExp("^")}, function (err, categories) {
-        if (err) {
-            return callback(err);
-        }
-        callback(null, categories);
-    })
-}
+//function getCategories(callback) {
+//    articles.find({categories: new RegExp("^")}, function (err, categories) {
+//        if (err) {
+//            return callback(err);
+//        }
+//        callback(null, categories);
+//    })
+//}
 
 module.exports = {
     getAllArticles: getAllArticles,
     getWiki: getWiki,
-    getCategories: getCategories,
-    getCategories1: getCategories1
+    getCategories: getCategories
 }
 

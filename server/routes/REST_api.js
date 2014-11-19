@@ -32,7 +32,7 @@ router.get('/articles/:title', function (req, res) {
 router.get('/categories/all', function (req, res) {
     console.log("In category detail");
 
-    articles.getCategories1(function (err, categories) {
+    articles.getCategories(function (err, categories) {
         if (err) {
             console.log("Cateogory log");
             res.status(err.status || 500);
