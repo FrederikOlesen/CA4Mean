@@ -27,7 +27,8 @@ describe('REST API for /articles', function () {
                 "title": "Abu Dhabi",
                 "url": "http://en.wikipedia.org/wiki/Abu_Dhabi",
                 "abstract": "Abu Dhabi ( ¿Ab¿ ¿aby, literally &quot;Father of Gazelle&quot;) is the largest of the seven emirates that comprise the United Arab Emirates and was also the largest of the former Trucial States. Abu Dhabi is also a city of the same name within the Emirate that is the capital of the country, in north central UAE.",
-                "categories": []
+                "categories": [
+                    "Amendments to the United States Constitution"]
             }, {
                 "title": "An American in Paris",
                 "url": "http://en.wikipedia.org/wiki/An_American_in_Paris",
