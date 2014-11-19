@@ -11,8 +11,8 @@ router.get('/articles', function (req, res) {
             res.send(JSON.stringify({error: err.toString()}));
             return;
         }
-        res.header("Content-type", "application/json");
-        res.end(JSON.stringify(wiki));
+        //res.header("Content-type", "application/json");
+        res.json(wiki);
     });
 });
 
@@ -24,8 +24,8 @@ router.get('/articles/:title', function (req, res) {
             res.send(JSON.stringify({error: err.toString()}));
             return;
         }
-        res.header("Content-type", "application/json");
-        res.end(JSON.stringify(title));
+        //res.header("Content-type", "application/json");
+        res.json(title);
     });
 });
 
