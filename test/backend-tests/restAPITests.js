@@ -7,7 +7,6 @@ var testPort = 9999;
 var testServer;
 var mongoose = require("mongoose");
 var articles = mongoose.model("Articles");
-var titleid = "Abu Dhabi";
 
 describe('REST API for /articles', function () {
     //Start the Server before the TESTS
@@ -60,14 +59,26 @@ describe('REST API for /articles', function () {
     });
 
     it("Should get the first article with name Abu Dhabi", function (done) {
-        http.get("http://localhost:" + testPort + "/api/articles/" + titleid, function (res) {
+        http.get("http://localhost:" + testPort + "/api/articles/" + 'Abu Dhabi', function (res) {
             res.setEncoding("utf8");//response data is now a string
             res.on("data", function (chunk) {
                 var n = JSON.parse(chunk);
                 n.length.should.equal(1);
-                n[0].title.should.equal(titleid);
+                n[0].title.should.equal('Abu Dhabi');
                 done();
             });
         })
     });
+
+    it("Should retrieve two categories", function (done) {
+        http.get("http://localhost:" + testPort + "/api/categories", function (res) {
+            res.setEncoding("utf8");//response data is now a string
+            res.on("data", function (chunk) {
+                var n = JSON.parse(chunk);
+                n.length.should.equal(2);
+                done();
+            });
+        })
+    });
+
 });
