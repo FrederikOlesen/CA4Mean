@@ -12,7 +12,7 @@ angular.module('myAppRename.view3', ['ngRoute'])
 .controller('View3Ctrl', function ($scope, $http) {
     $http({
       method: 'GET',
-      url: 'api/articles'
+      url: 'api/articles/'
     }).
       success(function (data, status, headers, config) {
         $scope.wiki = data;
