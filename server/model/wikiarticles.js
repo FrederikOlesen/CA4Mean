@@ -20,8 +20,18 @@ function getWiki(title, callback) {
             return callback(err);
         }
         callback(null, wiki);
-    });
+            return callback(err);
+        });
+    }
+
+    function getCategories1(callback) {
+        articles.find().distinct('categories', function (err, categories) {
+            if (err) {
+        }
+        callback(null, categories);
+    })
 }
+
 
 function getCategories(callback) {
     articles.find({categories: new RegExp("^")}, function (err, categories) {
@@ -35,6 +45,7 @@ function getCategories(callback) {
 module.exports = {
     getAllArticles: getAllArticles,
     getWiki: getWiki,
-    getCategories: getCategories
+    getCategories: getCategories,
+    getCategories1: getCategories1
 }
 
