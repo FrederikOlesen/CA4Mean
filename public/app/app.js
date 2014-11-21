@@ -9,7 +9,7 @@ angular.module('myAppRename', [
   'myAppRename.factories',
   'myAppRename.filters',
   'myAppRename.view1',
-  'myAppRename.view2',
+  'myAppRename.doku',
   'myAppRename.search',
   'myAppRename.allcategories',
   'myAppRename.addwiki'
