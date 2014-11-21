@@ -53,8 +53,8 @@ function addtowiki(data, callback){
     })
 }
 
-//function getCategories(callback) {
-//    articles.find({categories: new RegExp("^")}, function (err, categories) {
+//function getSpecificCategories(search, callback) {
+//    articles.find({categories: new RegExp("^"+search)}, function (err, categories) {
 //        if (err) {
 //            return callback(err);
 //        }

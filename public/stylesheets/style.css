@@ -21,3 +21,10 @@ a {
 #some-div:hover #some-element {
     display: block;
 }
+
+#top {
+    position:fixed;
+}
+#top2 {
+    position:fixed;
+}
