@@ -1,20 +1,17 @@
-<p>This is the partial for allcategories.</p>
-<p>Data is fetched from a REST service, connected to MongoDB </p>
-<ul>
-    <p style="color: red">{{error}}</p>
+<p style="color: red">{{error}}</p>
 
-    <div class="jumbotron">
-    <div id="navbar" class="collapse navbar-collapse">
+<div class="fixTopNavigationCategory">
+    <div id="navbar" class="collapse navbar-collapse navigation">
         <ul class="nav navbar-nav">
 
-
-    <nav id="top" script>
-            <div class="pagination" ng-repeat="letter in alphabet">
-                  <li><a href="" ng-click="findCat(letter)">{{letter}}</a></li>
-            </div>
-        </nav>
+            <nav id="navigation">
+                <div class="pagination" ng-repeat="letter in alphabet">
+                    <li><a href="" ng-click="findCat(letter)">{{letter}}</a>
+                    </li>
+                </div>
+            </nav>
             <br><br>
-            <nav id="top2" script>
+            <nav id="navigation">
                 <div class="pagination" ng-repeat="letter in number">
                     <li><a href="" ng-click="findCat(letter)">{{letter}}</a></li>
                 </div>
@@ -22,17 +19,19 @@
 
 
             <br><br><br>
+
             <h3><span class="label label-default">Hi and welcome to categories search</span></h3> <br>
         </ul>
     </div>
     <div class="container">
-    <ul class="list-group">
-        <li class="list-group-item" ng-repeat="categories in wiki | myfilter:search | limitTo:30">
-            <div id="some-div">
-                <p>{{categories}}</p>
-            </div>
-        </li>
-    </ul>
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="categories in wiki | myfilter:search | limitTo:30">
+                <div id="some-div">
+                    <p>{{categories}}</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+
 </div>
-    </ul>
-        </div>
+</div>

@@ -58,4 +58,4 @@ var WikiArticlesSchema = new mongoose.Schema({
 
 mongoose.model('Articles', WikiArticlesSchema, "wiki");
 
-module.exports.wikiModel = mongoose.model('wiki',WikiArticlesSchema);
+module.exports.wikiModel = mongoose.model('wiki', WikiArticlesSchema);

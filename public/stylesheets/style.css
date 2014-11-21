@@ -22,9 +22,16 @@ a {
     display: block;
 }
 
-#top {
-    position:fixed;
+.fixTopNavigation {
+    margin-top: 100px;
 }
-#top2 {
-    position:fixed;
+
+.fixTopNavigationCategory {
+    margin-top: 70px;
 }
+
+#navigation {
+    position: fixed;
+    z-index: 10;
+}
+
