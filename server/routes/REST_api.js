@@ -57,4 +57,20 @@ router.get('/categories', function (req, res) {
     });
 });
 
+router.get('/addwiki', function (req, res) {
+    console.log("In addwiki");
+
+    articles.getCategories(function (err, categories) {
+        if (err) {
+            console.log("Cateogory log");
+            res.status(err.status || 500);
+            res.send(JSON.stringify({error: err.toString()}));
+            return;
+        }
+        res.header("Content-type", "application/json");
+        res.end(JSON.stringify(categories));
+    });
+});
+
+
 module.exports = router;

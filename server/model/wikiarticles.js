@@ -5,6 +5,7 @@
 var mongoose = require('mongoose');
 var articles = mongoose.model('Articles');
 
+
 function getAllArticles(callback) {
     articles.find({}, function (err, wiki) {
         if (err) {
@@ -44,6 +45,15 @@ function getCategories(callback) {
     })
 }
 
+function addtowiki(data, callback){
+articles.save(function(err,data){
+    if(err){
+        console.log("error")
+    }
+    console.log("Working")
+
+})
+}
 
 //function getCategories(callback) {
 //    articles.find({categories: new RegExp("^")}, function (err, categories) {
