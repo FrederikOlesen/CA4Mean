@@ -72,5 +72,11 @@ router.get('/addwiki', function (req, res) {
     });
 });
 
+router.put('/addtowiki', function(req, res) {
+    articles.addtowiki(req.body, function(err) {}   );
+    console.log(req.body);
+    res.send("");
+})
+
 
 module.exports = router;

@@ -12,7 +12,7 @@ angular.module('myAppRename.addwiki', ['ngRoute'])
         });
     }])
 
-    .controller('addwikiCtrl', ['$scope', function($scope) {
+    .controller('addwikiCtrl', ['$scope', '$http', function($scope, $http) {
 
         $scope.articles =
             [
@@ -31,11 +31,19 @@ angular.module('myAppRename.addwiki', ['ngRoute'])
 
         }
 
+
        // var wiki = new model.wikiModel({title : 'MichaelsAwesomness', url : www.lol.dk, abstract:'Tihi',categories:'awesome'});
-       //$scope.save = function(err, wiki){
-       //    if(err){
-       //        console.log("fejl")
-       //    }
-       //     console.log("Det virker - MÅSKE")
-       // }
+       $scope.save = function(){
+
+           var wiki = {title:$scope.data,url:$scope.data1, abstract:$scope.data2, categories:$scope.data3}
+           $http.put('/api/addtowiki', wiki)
+               .success(function(){
+
+               })
+               .error(function(err) {
+                   console.log("fejl");
+               });
+          };
+
+
     }]);

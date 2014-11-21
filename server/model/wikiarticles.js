@@ -46,13 +46,11 @@ function getCategories(callback) {
 }
 
 function addtowiki(data, callback){
-articles.save(function(err,data){
-    if(err){
-        console.log("error")
-    }
-    console.log("Working")
-
-})
+    var wiki = new articles(data);
+    wiki.save(function(err) {
+        console.log(wiki);
+        callback();
+    })
 }
 
 //function getCategories(callback) {
@@ -68,6 +66,7 @@ module.exports = {
     getAllArticles: getAllArticles,
     getWiki: getWiki,
     getCategories: getCategories,
-    getWikiByCat: getWikiByCategory
+    getWikiByCat: getWikiByCategory,
+    addtowiki: addtowiki
 }
 

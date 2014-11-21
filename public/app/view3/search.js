@@ -1,15 +1,15 @@
 'use strict';
 
-angular.module('myAppRename.view3', ['ngRoute'])
+angular.module('myAppRename.search', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view3', {
-    templateUrl: 'app/view3/view3.html',
-    controller: 'View3Ctrl'
+  $routeProvider.when('/search', {
+    templateUrl: 'app/view3/search.html',
+    controller: 'SearchCtrl'
   });
 }])
 
-.controller('View3Ctrl', function ($scope, $http) {
+.controller('SearchCtrl', function ($scope, $http) {
     $http({
       method: 'GET',
       url: 'api/articles/'
